@@ -14,7 +14,7 @@ const Home = () => {
         try {
             //calling API to enhance the image
             const enhancedURL = await enhancedImageAPI(file);
-            setenhancedImage(enhancedURL);
+            setenhancedImage(enhancedURL?.image);
             setloading(false);
         } catch (error) {
             console.log(error);
@@ -22,7 +22,7 @@ const Home = () => {
         }
     };
     return (
-        <div className="w-[90%] gap-20 grid">
+        <div className="w-[90%] gap-10 grid">
             <ImageUpload UploadImageHandler={UploadImageHandler} />
 
             <ImagePreview

@@ -2,17 +2,17 @@ import axios from "axios";
 
 const API_KEY = "wxf7tibbp3cwk1ifs";
 const BASE_URL = "https://techhk.aoscdn.com/";
+const MAXIMUM_RETRIES = 20;
+
 export const enhancedImageAPI = async (file) => {
     try {
-        // const taskId = await uploadImage(file);
-        // console.log("Image Uploaded Successfully: ", taskId);
+        const taskId = await uploadImage(file);
+        console.log("Image Uploaded Successfully: ", taskId);
 
-        const enhancedImageData = await fetchEnhancedImage(
-            "baf3ac37-1ef2-4ffc-b6d0-2dcf3b2adf15"
-        );
+        const enhancedImageData = await PollForEnhancedImage(taskId);
         console.log("Enhanced Image Data: ", enhancedImageData);
 
-        // return enhancedImageData;
+        return enhancedImageData;
     } catch (error) {
         console.log("Error enhancing Image: ", error);
     }
@@ -48,7 +48,6 @@ const fetchEnhancedImage = async (taskId) => {
         `${BASE_URL}/api/tasks/visual/scale/${taskId}`,
         {
             headers: {
-                "Content-Type": "multipart/form-data",
                 "x-api-key": API_KEY,
             },
         }
@@ -59,4 +58,22 @@ const fetchEnhancedImage = async (taskId) => {
     return data.data;
 
     // ("/api/tasks/visual/scale/{task_id}"); --get
+};
+
+const PollForEnhancedImage = async (taskId, retries = 0) => {
+    const result = await fetchEnhancedImage(taskId);
+
+    if (result.state === 4) {
+        console.log(`Processing...(${retries}/${MAXIMUM_RETRIES})`);
+
+        if (retries >= MAXIMUM_RETRIES) {
+            throw new Error("Max retries reached. Please try again.");
+        }
+
+        //wait fr 2 second
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        return PollForEnhancedImage(taskId, retries + 1);
+    }
+    return result;
 };
