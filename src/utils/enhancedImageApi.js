@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_KEY = "wx2cvqxsj105ymcwj";
 const BASE_URL = "https://techhk.aoscdn.com/";
 const MAXIMUM_RETRIES = 20;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export const enhancedImageAPI = async (file) => {
     try {
