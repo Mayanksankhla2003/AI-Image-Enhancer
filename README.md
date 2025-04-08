@@ -1,12 +1,33 @@
-# React + Vite
+# AI Image Enhancer 🧠✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Live Website](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen)](https://ai-image-enhancer-omega.vercel.app/)
 
-Currently, two official plugins are available:
+An AI-powered web application that enhances the resolution and clarity of your images using advanced deep learning models. Built using React.js, Node.js, TailwindCSS, and integrated with Picwish image processing API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+👉 [https://ai-image-enhancer-omega.vercel.app/](https://ai-image-enhancer-omega.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 📸 Upload and enhance images using AI
+- ⚡ Fast and responsive UI
+- 🧠 Uses advanced deep learning models
+- 🖼️ Real-time image preview
+- 🗂️ Drag-and-drop image upload
+- 🌐 Fully deployed and hosted on Vercel
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js, TailwindCSS
+- **Backend**: Node.js, 
+- **AI Integration**: Picwish API
+- **Deployment**: Vercel
+
+## 📷 How It Works
+
+1. Upload an image via drag-and-drop or file picker
+2. The image is sent to the backend and processed using an AI enhancement API
+3. The enhanced image is returned and displayed in real-time
+
+
