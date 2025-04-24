@@ -13,9 +13,6 @@ const App = () => {
                 </p>
             </div>
             <Home />
-            <div className="text-lg w-full absolute bottom-0 bg-gray-700 text-white py-4">
-                Powered By @MayankSankhla
-            </div>
         </div>
     );
 };
